@@ -8,7 +8,7 @@
 * Date: 2013-07-10
 */
 
-#include "stdafx.h"
+#include "pch.h"
 #include "Fasm.NET.h"
 
 namespace Binarysharp {
@@ -70,9 +70,9 @@ namespace Binarysharp {
 					if(ret == FasmResults::Ok)
 					{
 						// Get the assembly code
-						array<byte>^ assembly = gcnew array<byte>(state->OutputLength);
-						Marshal::Copy((IntPtr)state->OutputData, assembly, 0, state->OutputLength);
-						return assembly;
+						auto assembly = gcnew array<unsigned char>(state->OutputLength);
+						Marshal::Copy(assembly, 0, (IntPtr)state->OutputData, state->OutputLength);
+						return reinterpret_cast<array<byte>^>(assembly);
 					}
 					else
 					{
@@ -155,7 +155,7 @@ namespace Binarysharp {
 			array<byte>^ FasmNet::AssembleFiles(IEnumerable<String^>^ paths, int memorySize, int passLimit)
 			{
 				// Allocate a builder to store the content of all the file
-				StringBuilder^ ret = gcnew StringBuilder();
+				auto ret = gcnew StringBuilder();
 
 				// For each file
 				for each(String^ path in paths)

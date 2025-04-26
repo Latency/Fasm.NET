@@ -10,9 +10,12 @@
 
 #pragma once
 
+#include <cstddef>
+
 #include "Enumerations.h"
 
 using namespace System::Runtime::InteropServices;
+using namespace std;
 
 namespace Binarysharp {
 	namespace Assemblers {

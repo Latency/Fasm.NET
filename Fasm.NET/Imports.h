@@ -8,12 +8,14 @@
 * Date: 2013-07-10
 */
 #pragma once
+#include <cstddef>
 
 /// <summary>
 /// The native function to get the version of FASM compiler embedded in Fasm.obj.
 /// </summary>
 /// <returns>The return valus is a double word containg major version in lower 16 bits, and minor version in the higher 16 bits.</returns>
 extern "C" int fasm_GetVersion();
+
 /// <summary>
 /// The native function to assemble mnemonics of FASM compiler embedded in Fasm.obj.
 /// </summary>
@@ -22,4 +24,4 @@ extern "C" int fasm_GetVersion();
 /// <param name="memorySize">The memory size allocated for the buffer.</param>
 /// <param name="passLimit">The maximum number of pass to perform.</param>
 /// <returns>The return value is a <see cref="FasmResults"> enumeration.</returns>
-extern "C" int fasm_Assemble(char* szSource, byte* lpMemory, int nSize, int nPassesLimit, void* hDisplayPipe);
+extern "C" int fasm_Assemble(char* szSource, std::byte* lpMemory, int nSize, int nPassesLimit, void* hDisplayPipe);

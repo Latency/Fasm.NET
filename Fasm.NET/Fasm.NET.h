@@ -14,6 +14,7 @@
 #include "FasmAssemblerException.h"
 #include "Imports.h"
 #include "Structures.h"
+#include <cstddef>
 
 #define DEFAULT_MEMORY_SIZE 4096
 #define DEFAULT_PASS_LIMIT 100

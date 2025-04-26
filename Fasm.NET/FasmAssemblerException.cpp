@@ -8,7 +8,7 @@
 * Date: 2013-07-10
 */
 
-#include "Stdafx.h"
+#include "pch.h"
 #include "FasmAssemblerException.h"
 
 using namespace System;
